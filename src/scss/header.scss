@@ -1,0 +1,29 @@
+.header {
+    min-width: 400px;
+    min-height: 100px;
+    background-image: url("https://cdn.pixabay.com/photo/2013/07/18/20/26/boat-164989_1280.jpg");
+    background-size: 100% 15%;
+    background-attachment: fixed;
+}
+
+.header__back {
+    background-color: rgba($color: #000000, $alpha: 0.44);
+    display: flex;
+    justify-content: space-around;
+    min-height: 100px;
+}
+
+.header__title {
+    color: rgba(white, $alpha: 0.5);
+    font-size: 60px;
+}
+
+.main {
+    min-width: 1200px;
+    min-height: 700px;
+    background-image: url("https://c.pxhere.com/photos/3a/33/controller_gamepad_gamer_technology_xbox-1392316.jpg!d");
+    background-attachment: fixed;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+}

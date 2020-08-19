@@ -1,5 +1,6 @@
 @import "./header.scss";
 @import "./mainContainer.scss";
+@import "./game.scss";
 
 @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 
@@ -11,6 +12,8 @@
 
 }
 
-a {
+a,
+Link {
     text-decoration: none;
+    color: rgba(white, $alpha: 0.6);
 }

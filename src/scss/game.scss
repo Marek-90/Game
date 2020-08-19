@@ -1,0 +1,37 @@
+.main__game-container {
+    min-width: 1200px;
+    min-height: 598px;
+    background-image: url("https://c.pxhere.com/photos/3a/33/controller_gamepad_gamer_technology_xbox-1392316.jpg!d");
+    background-attachment: fixed;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.main__game {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 20vh;
+    min-width: 100vh;
+}
+
+.main__game-card {
+    flex-basis: 15%;
+    flex-grow: 1;
+    height: 27vh;
+    border: 3px solid rgba($color: white, $alpha: 0.2);
+    margin: 5px;
+    color: white;
+    font-size: 30px;
+}
+
+.main__game-score {
+    color: white;
+}
+
+.addClass {
+    background-color: black;
+    color: black
+}

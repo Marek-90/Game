@@ -1,3 +1,13 @@
+.main {
+    min-width: 1200px;
+    min-height: 800px;
+    background-image: url("https://c.pxhere.com/photos/3a/33/controller_gamepad_gamer_technology_xbox-1392316.jpg!d");
+    background-attachment: fixed;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+}
+
 .main__container {
     display: flex;
     flex-direction: column;

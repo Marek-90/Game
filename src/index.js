@@ -1,16 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import Rotate from "./rotate";
 import "./scss/main.scss";
-import Header from "./header";
-import Main from "./main";
-import { motion } from "framer-motion";
 
 const App = () => {
   return (
-    <div>
-      <Header />
-      <Main />
-    </div>
+    <Router>
+      <Rotate />
+    </Router>
   );
 };
 

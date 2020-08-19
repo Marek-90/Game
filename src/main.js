@@ -1,12 +1,13 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import "./scss/main.scss";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+
+import "./scss/main.scss";
 
 const Main = () => {
   return (
     <motion.div className="main">
-      <ul className="main__container">
+      <motion.ul className="main__container">
         <motion.li
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -19,7 +20,7 @@ const Main = () => {
               boxShadow: "0px 0px 10px rgb(255, 255,255)",
             }}
           >
-            START
+            <Link to="/level">START</Link>
           </motion.button>
         </motion.li>
         <motion.li
@@ -52,7 +53,7 @@ const Main = () => {
             BLOG
           </motion.button>
         </motion.li>
-      </ul>
+      </motion.ul>
     </motion.div>
   );
 };

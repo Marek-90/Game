@@ -15,25 +15,32 @@ const Game = () => {
     setIdArr((prevState) => [...prevState, id]);
   };
 
+  const numArr1 = idArr[1] - 1;
+
   useEffect(() => {
     if (current.length === 2) {
       if (idArr[0] !== idArr[1]) {
         if (current[0] === current[1]) {
           setScore((prevState) => [prevState[0] + 1]);
-
-          console.log("może być lepiej");
         }
       } else {
-        console.log("tylkoDupa");
       }
       setCurrent([]);
       setIdArr([]);
+      if (idArr[0] > idArr[1]) {
+        cardCont.splice(idArr[0], 1);
+        cardCont.splice(idArr[1], 1);
+      } else if (idArr[0] < idArr[1]) {
+        cardCont.splice(idArr[0], 1);
+        cardCont.splice(numArr1, 1);
+      }
     }
   }, [current]);
 
   const [cardCont, setCardCont] = useState(
     shuffle([1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9])
   );
+
   function shuffle(array) {
     let currentIndex = array.length,
       temporaryValue,
@@ -52,7 +59,6 @@ const Game = () => {
   const content = cardCont.map((el, i) => (
     <Card id={i} key={i} content={el} show={clickOn} />
   ));
-  // console.log(content[0].props.id);
   return (
     <div className="main__game-container">
       <div className="main__game-score">Twój wynik to: {score}</div>

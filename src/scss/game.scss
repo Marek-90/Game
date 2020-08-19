@@ -17,21 +17,22 @@
     min-width: 100vh;
 }
 
-.main__game-card {
+.mainGameCard {
     flex-basis: 15%;
     flex-grow: 1;
     height: 27vh;
     border: 3px solid rgba($color: white, $alpha: 0.2);
     margin: 5px;
-    color: white;
     font-size: 30px;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: -5px -5px 15px rgba($color: white, $alpha: 0.4);
+    }
+
 }
 
 .main__game-score {
     color: white;
-}
-
-.addClass {
-    background-color: black;
-    color: black
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+// import { Link } from "react-router-dom";
+// import { motion } from "framer-motion";
 
 import "./scss/main.scss";
 import Card from "./card";
@@ -8,19 +8,26 @@ import Card from "./card";
 const Game = () => {
   const [current, setCurrent] = useState([]);
   const [score, setScore] = useState([0]);
+  const [idArr, setIdArr] = useState([]);
 
-  const clickOn = (secret) => {
+  const clickOn = (secret, id) => {
     setCurrent((prevState) => [...prevState, secret]);
+    setIdArr((prevState) => [...prevState, id]);
   };
+
   useEffect(() => {
     if (current.length === 2) {
-      if (current[0] === current[1]) {
-        setScore((prevState) => [prevState[0] + 1]);
-        console.log("spokoDupa");
+      if (idArr[0] !== idArr[1]) {
+        if (current[0] === current[1]) {
+          setScore((prevState) => [prevState[0] + 1]);
+
+          console.log("może być lepiej");
+        }
       } else {
         console.log("tylkoDupa");
       }
       setCurrent([]);
+      setIdArr([]);
     }
   }, [current]);
 
@@ -42,11 +49,10 @@ const Game = () => {
     }
     return array;
   }
-
   const content = cardCont.map((el, i) => (
-    <Card key={i} content={el} show={clickOn} />
+    <Card id={i} key={i} content={el} show={clickOn} />
   ));
-
+  // console.log(content[0].props.id);
   return (
     <div className="main__game-container">
       <div className="main__game-score">Twój wynik to: {score}</div>

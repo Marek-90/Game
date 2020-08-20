@@ -7,7 +7,7 @@ import Card from "./card";
 
 const Game = () => {
   const [current, setCurrent] = useState([]);
-  const [score, setScore] = useState([9]);
+  const [score, setScore] = useState([0]);
   const [idArr, setIdArr] = useState([]);
   const [cardCont, setCardCont] = useState(
     shuffle([1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9])

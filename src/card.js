@@ -1,17 +1,9 @@
 import React from "react";
 import "./scss/main.scss";
-import classNames from "classnames";
 
-const Card = ({ content, show, id, active, disabled }) => {
+const Card = ({ content, show, id, disabled }) => {
   return (
-    <div
-      id={id}
-      className={classNames("mainGameCard", {
-        newClass: active,
-        disabled: disabled,
-      })}
-      onClick={() => show(content, id)}
-    >
+    <div id={id} className="mainGameCard" onClick={(e) => show(content, id, e)}>
       {content}
     </div>
   );

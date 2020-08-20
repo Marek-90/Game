@@ -9,12 +9,11 @@ const Game = () => {
   const [current, setCurrent] = useState([]);
   const [score, setScore] = useState([0]);
   const [idArr, setIdArr] = useState([]);
-  const [active, setActive] = useState("");
 
-  const clickOn = (secret, id) => {
+  const clickOn = (secret, id, e) => {
     setCurrent((prevState) => [...prevState, secret]);
     setIdArr((prevState) => [...prevState, id]);
-    setActive((prevState) => "active");
+    e.target.classList.add("newClass");
   };
 
   const numArr1 = idArr[1] - 1;
@@ -33,10 +32,12 @@ const Game = () => {
           }
         }
       } else {
+        document
+          .querySelectorAll(".mainGameCard")
+          .forEach((el) => el.classList.remove(".newClass"));
       }
       setCurrent([]);
       setIdArr([]);
-      setActive("");
     }
   }, [current]);
 
@@ -60,7 +61,7 @@ const Game = () => {
     return array;
   }
   const content = cardCont.map((el, i) => (
-    <Card id={i} key={i} content={el} show={clickOn} active={active} />
+    <Card id={i} key={i} content={el} show={clickOn} />
   ));
   return (
     <div className="main__game-container">

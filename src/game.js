@@ -9,10 +9,13 @@ const Game = () => {
   const [current, setCurrent] = useState([]);
   const [score, setScore] = useState([0]);
   const [idArr, setIdArr] = useState([]);
+  const [active, setActive] = useState("");
+  console.log(active);
 
   const clickOn = (secret, id) => {
     setCurrent((prevState) => [...prevState, secret]);
     setIdArr((prevState) => [...prevState, id]);
+    setActive((prevState) => "active");
   };
 
   const numArr1 = idArr[1] - 1;
@@ -22,18 +25,19 @@ const Game = () => {
       if (idArr[0] !== idArr[1]) {
         if (current[0] === current[1]) {
           setScore((prevState) => [prevState[0] + 1]);
+          if (idArr[0] > idArr[1]) {
+            cardCont.splice(idArr[0], 1);
+            cardCont.splice(idArr[1], 1);
+          } else if (idArr[0] < idArr[1]) {
+            cardCont.splice(idArr[0], 1);
+            cardCont.splice(numArr1, 1);
+          }
         }
       } else {
       }
       setCurrent([]);
       setIdArr([]);
-      if (idArr[0] > idArr[1]) {
-        cardCont.splice(idArr[0], 1);
-        cardCont.splice(idArr[1], 1);
-      } else if (idArr[0] < idArr[1]) {
-        cardCont.splice(idArr[0], 1);
-        cardCont.splice(numArr1, 1);
-      }
+      setActive("");
     }
   }, [current]);
 
@@ -57,7 +61,7 @@ const Game = () => {
     return array;
   }
   const content = cardCont.map((el, i) => (
-    <Card id={i} key={i} content={el} show={clickOn} />
+    <Card id={i} key={i} content={el} show={clickOn} active={active} />
   ));
   return (
     <div className="main__game-container">

@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
-// import { Link } from "react-router-dom";
-// import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 import "./scss/main.scss";
 import Card from "./card";
 
 const Game = () => {
   const [current, setCurrent] = useState([]);
-  const [score, setScore] = useState([0]);
+  const [score, setScore] = useState([9]);
   const [idArr, setIdArr] = useState([]);
+  const [cardCont, setCardCont] = useState(
+    shuffle([1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9])
+  );
+  const [cardDisplay, useCardDisplay] = useState(false);
 
   const clickOn = (secret, id, e) => {
     setCurrent((prevState) => [...prevState, secret]);
@@ -32,18 +36,11 @@ const Game = () => {
           }
         }
       } else {
-        document
-          .querySelectorAll(".mainGameCard")
-          .forEach((el) => el.classList.remove(".newClass"));
       }
       setCurrent([]);
       setIdArr([]);
     }
   }, [current]);
-
-  const [cardCont, setCardCont] = useState(
-    shuffle([1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9])
-  );
 
   function shuffle(array) {
     let currentIndex = array.length,
@@ -60,8 +57,40 @@ const Game = () => {
     }
     return array;
   }
+  if (score[0] === 9) {
+    const WinnerPanel = () => {
+      return (
+        <div className="main__game-container ">
+          <div className="winnerPanel">
+            <p>Gratulacje Wygrałeś!</p>
+            <p>Zdobyłeś {score} punktów!</p>
+            <motion.button
+              className="main__btn-decoration"
+              whileHover={{
+                scale: 1.1,
+                boxShadow: "0px 0px 10px rgb(255, 255,255)",
+              }}
+            >
+              <Link to="/level">Graj dalej</Link>
+            </motion.button>
+            <motion.button
+              className="main__btn-decoration"
+              whileHover={{
+                scale: 1.1,
+                boxShadow: "0px 0px 10px rgb(255, 255,255)",
+              }}
+            >
+              <Link to="/">Menu</Link>
+            </motion.button>
+          </div>
+        </div>
+      );
+    };
+    return <WinnerPanel />;
+  }
+
   const content = cardCont.map((el, i) => (
-    <Card id={i} key={i} content={el} show={clickOn} />
+    <Card id={i} key={i} content={el} show={clickOn} noDisplay={cardDisplay} />
   ));
   return (
     <div className="main__game-container">

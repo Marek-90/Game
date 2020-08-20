@@ -10,7 +10,6 @@ const Game = () => {
   const [score, setScore] = useState([0]);
   const [idArr, setIdArr] = useState([]);
   const [active, setActive] = useState("");
-  console.log(active);
 
   const clickOn = (secret, id) => {
     setCurrent((prevState) => [...prevState, secret]);

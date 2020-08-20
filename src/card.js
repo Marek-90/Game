@@ -7,8 +7,8 @@ const Card = ({ content, show, id, active, disabled }) => {
     <div
       id={id}
       className={classNames("mainGameCard", {
-        active: active,
-        // disabled: disabled,
+        newClass: active,
+        disabled: disabled,
       })}
       onClick={() => show(content, id)}
     >

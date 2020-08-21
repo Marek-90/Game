@@ -20,7 +20,7 @@ const Level = () => {
               boxShadow: "0px 0px 10px rgb(255, 255,255)",
             }}
           >
-            <Link to="/game">EASY</Link>
+            <Link to="/gameEasy">EASY</Link>
           </motion.button>
         </motion.li>
         <motion.li
@@ -35,7 +35,7 @@ const Level = () => {
               boxShadow: "0px 0px 10px rgb(255, 255,255)",
             }}
           >
-            <Link to="/game.js">MEDIUM</Link>
+            <Link to="/game">MEDIUM</Link>
           </motion.button>
         </motion.li>
         <motion.li
@@ -50,7 +50,7 @@ const Level = () => {
               boxShadow: "0px 0px 10px rgb(255, 255,255)",
             }}
           >
-            <Link to="/game.js">HARD</Link>
+            <Link to="/gameHard">HARD</Link>
           </motion.button>
         </motion.li>
       </ul>

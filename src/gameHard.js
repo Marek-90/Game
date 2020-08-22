@@ -37,7 +37,6 @@ const GameHard = () => {
       12,
     ])
   );
-  const [cardDisplay, useCardDisplay] = useState(false);
 
   const clickOn = (secret, id, e) => {
     setCurrent((prevState) => [...prevState, secret]);
@@ -115,7 +114,7 @@ const GameHard = () => {
   }
 
   const content = cardCont.map((el, i) => (
-    <Card id={i} key={i} content={el} show={clickOn} noDisplay={cardDisplay} />
+    <Card id={i} key={i} content={el} show={clickOn} />
   ));
   return (
     <div className="main__game-container">

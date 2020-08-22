@@ -12,11 +12,11 @@ const GameEasy = () => {
   const [cardCont, setCardCont] = useState(
     shuffle([1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6])
   );
-  const [cardDisplay, useCardDisplay] = useState(false);
 
   const clickOn = (secret, id, e) => {
     setCurrent((prevState) => [...prevState, secret]);
     setIdArr((prevState) => [...prevState, id]);
+
     e.target.classList.add("newClass");
   };
 
@@ -88,9 +88,8 @@ const GameEasy = () => {
     };
     return <WinnerPanel />;
   }
-
   const content = cardCont.map((el, i) => (
-    <Card id={i} key={i} content={el} show={clickOn} noDisplay={cardDisplay} />
+    <Card id={i} key={i} content={el} show={clickOn} />
   ));
   return (
     <div className="main__game-container">

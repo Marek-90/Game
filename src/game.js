@@ -12,7 +12,6 @@ const Game = () => {
   const [cardCont, setCardCont] = useState(
     shuffle([1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9])
   );
-  const [cardDisplay, useCardDisplay] = useState(false);
 
   const clickOn = (secret, id, e) => {
     setCurrent((prevState) => [...prevState, secret]);
@@ -90,7 +89,7 @@ const Game = () => {
   }
 
   const content = cardCont.map((el, i) => (
-    <Card id={i} key={i} content={el} show={clickOn} noDisplay={cardDisplay} />
+    <Card id={i} key={i} content={el} show={clickOn} />
   ));
   return (
     <div className="main__game-container">

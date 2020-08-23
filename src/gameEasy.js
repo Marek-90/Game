@@ -14,32 +14,36 @@ const GameEasy = () => {
   );
 
   const clickOn = (secret, id, e) => {
-    setCurrent((prevState) => [...prevState, secret]);
-    setIdArr((prevState) => [...prevState, id]);
+    if (current.length < 2) {
+      setCurrent((prevState) => [...prevState, secret]);
+      setIdArr((prevState) => [...prevState, id]);
 
-    e.target.classList.add("newClass");
+      e.target.classList.add("newClass");
+    }
   };
 
   const numArr1 = idArr[1] - 1;
 
   useEffect(() => {
-    if (current.length === 2) {
-      if (idArr[0] !== idArr[1]) {
-        if (current[0] === current[1]) {
-          setScore((prevState) => [prevState[0] + 1]);
-          if (idArr[0] > idArr[1]) {
-            cardCont.splice(idArr[0], 1);
-            cardCont.splice(idArr[1], 1);
-          } else if (idArr[0] < idArr[1]) {
-            cardCont.splice(idArr[0], 1);
-            cardCont.splice(numArr1, 1);
+    const t = setTimeout(() => {
+      if (current.length === 2) {
+        if (idArr[0] !== idArr[1]) {
+          if (current[0] === current[1]) {
+            setScore((prevState) => [prevState[0] + 1]);
+            if (idArr[0] > idArr[1]) {
+              cardCont.splice(idArr[0], 1);
+              cardCont.splice(idArr[1], 1);
+            } else if (idArr[0] < idArr[1]) {
+              cardCont.splice(idArr[0], 1);
+              cardCont.splice(numArr1, 1);
+            }
           }
+        } else {
         }
-      } else {
+        setCurrent([]);
+        setIdArr([]);
       }
-      setCurrent([]);
-      setIdArr([]);
-    }
+    }, 1000);
   }, [current]);
 
   function shuffle(array) {
@@ -89,7 +93,7 @@ const GameEasy = () => {
     return <WinnerPanel />;
   }
   const content = cardCont.map((el, i) => (
-    <Card id={i} key={i} content={el} show={clickOn} />
+    <Card id={i} key={i} content={el} show={clickOn} idArr={idArr} />
   ));
   return (
     <div className="main__game-container">

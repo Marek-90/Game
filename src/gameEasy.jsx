@@ -2,12 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-import "./scss/main.scss";
 import Card from "./card";
+import WinnerPanel from "./winnerPanel";
+import Timer from "./timer";
+
+import "./scss/main.scss";
 
 const GameEasy = () => {
   const [current, setCurrent] = useState([]);
-  const [score, setScore] = useState([0]);
+  const [score, setScore] = useState([6]);
   const [idArr, setIdArr] = useState([]);
   const [cardCont, setCardCont] = useState(
     shuffle([1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6])
@@ -38,7 +41,6 @@ const GameEasy = () => {
               cardCont.splice(numArr1, 1);
             }
           }
-        } else {
         }
         setCurrent([]);
         setIdArr([]);
@@ -62,42 +64,17 @@ const GameEasy = () => {
     return array;
   }
   if (score[0] === 6) {
-    const WinnerPanel = () => {
-      return (
-        <div className="main__game-container ">
-          <div className="winnerPanel">
-            <p>Gratulacje Wygrałeś!</p>
-            <p>Zdobyłeś {score} punktów!</p>
-            <motion.button
-              className="main__btn-decoration"
-              whileHover={{
-                scale: 1.1,
-                boxShadow: "0px 0px 10px rgb(255, 255,255)",
-              }}
-            >
-              <Link to="/level">Graj dalej</Link>
-            </motion.button>
-            <motion.button
-              className="main__btn-decoration"
-              whileHover={{
-                scale: 1.1,
-                boxShadow: "0px 0px 10px rgb(255, 255,255)",
-              }}
-            >
-              <Link to="/">Menu</Link>
-            </motion.button>
-          </div>
-        </div>
-      );
-    };
-    return <WinnerPanel />;
+    return <WinnerPanel score={score} />;
   }
   const content = cardCont.map((el, i) => (
     <Card id={i} key={i} content={el} show={clickOn} idArr={idArr} />
   ));
   return (
     <div className="main__game-container">
-      <div className="main__game-score">Twój wynik to: {score}</div>
+      <div className="main__game-score">
+        Twój wynik to: {score}
+        {/* <Timer /> */}
+      </div>
       <div className="main__game">{content}</div>
     </div>
   );

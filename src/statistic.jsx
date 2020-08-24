@@ -4,7 +4,7 @@ const Statistic = () => {
   return (
     <div className="main__game-container">
       <div>
-        <table>
+        <table className="statistic__container">
           <tr>
             <th>Id</th>
             <th>Name</th>

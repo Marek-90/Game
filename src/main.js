@@ -50,7 +50,9 @@ const Main = () => {
               boxShadow: "0px 0px 10px rgb(255, 255,255)",
             }}
           >
-            BLOG
+            <a href="https://bi.im-g.pl/im/5d/e0/16/z23988829IBG,Blok-przy-Zeromskiego-112-w-Radomiu-obecnie--W-lat.jpg">
+              BLOG
+            </a>
           </motion.button>
         </motion.li>
       </motion.ul>

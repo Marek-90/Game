@@ -35,7 +35,7 @@ const Main = () => {
               boxShadow: "0px 0px 10px rgb(255, 255,255)",
             }}
           >
-            STATISTICS
+            <Link to="/statistic">STATISTICS</Link>
           </motion.button>
         </motion.li>
         <motion.li

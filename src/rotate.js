@@ -7,6 +7,7 @@ import GameEasy from "./gameEasy";
 import Game from "./game";
 import GameHard from "./gameHard";
 import Header from "./header";
+import Statistic from "./statistic";
 
 const Rotate = () => {
   return (
@@ -18,6 +19,7 @@ const Rotate = () => {
         <Route component={GameEasy} path="/gameEasy" />
         <Route component={Game} path="/game" />
         <Route component={GameHard} path="/gameHard" />
+        <Route component={Statistic} path="/statistic" />
       </Switch>
     </>
   );

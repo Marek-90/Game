@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-import "./scss/main.scss";
 import Card from "./card";
+import WinnerPanel from "./winnerPanel";
+
+import "./scss/main.scss";
 
 const GameHard = () => {
   const [current, setCurrent] = useState([]);
@@ -87,35 +89,7 @@ const GameHard = () => {
     return array;
   }
   if (score[0] === 12) {
-    const WinnerPanel = () => {
-      return (
-        <div className="main__game-container ">
-          <div className="winnerPanel">
-            <p>Gratulacje Wygrałeś!</p>
-            <p>Zdobyłeś {score} punktów!</p>
-            <motion.button
-              className="main__btn-decoration"
-              whileHover={{
-                scale: 1.1,
-                boxShadow: "0px 0px 10px rgb(255, 255,255)",
-              }}
-            >
-              <Link to="/level">Graj dalej</Link>
-            </motion.button>
-            <motion.button
-              className="main__btn-decoration"
-              whileHover={{
-                scale: 1.1,
-                boxShadow: "0px 0px 10px rgb(255, 255,255)",
-              }}
-            >
-              <Link to="/">Menu</Link>
-            </motion.button>
-          </div>
-        </div>
-      );
-    };
-    return <WinnerPanel />;
+    return <WinnerPanel score={score} />;
   }
   const content = cardCont.map((el, i) => (
     <Card id={i} key={i} content={el} show={clickOn} idArr={idArr} />

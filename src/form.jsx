@@ -1,10 +1,10 @@
 import React from "react";
 
-const Form2 = () => {
+const Form = () => {
   return (
-    <form className="form-style">
-      <input type="text" />
+    <form>
+      <input type="text" className="form-style" />
     </form>
   );
 };
-export default Form2;
+export default Form;

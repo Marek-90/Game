@@ -10,7 +10,7 @@ import "./scss/main.scss";
 
 const GameEasy = () => {
   const [current, setCurrent] = useState([]);
-  const [score, setScore] = useState([6]);
+  const [score, setScore] = useState([0]);
   const [idArr, setIdArr] = useState([]);
   const [cardCont, setCardCont] = useState(
     shuffle([1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6])

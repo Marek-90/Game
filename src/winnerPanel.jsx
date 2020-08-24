@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import Form from "./form";
 
 const WinnerPanel = ({ score }) => {
   return (
@@ -8,6 +9,7 @@ const WinnerPanel = ({ score }) => {
       <div className="winnerPanel">
         <p>Gratulacje Wygrałeś!</p>
         <p>Zdobyłeś {score} punktów!</p>
+        <Form />
         <motion.button
           className="main__btn-decoration"
           whileHover={{

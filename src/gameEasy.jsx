@@ -32,7 +32,6 @@ const GameEasy = () => {
       if (current.length === 2) {
         if (idArr[0] !== idArr[1]) {
           if (current[0] === current[1]) {
-            setScore((prevState) => [prevState[0] + 1]);
             if (idArr[0] > idArr[1]) {
               cardCont.splice(idArr[0], 1);
               cardCont.splice(idArr[1], 1);

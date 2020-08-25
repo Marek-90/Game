@@ -73,7 +73,7 @@ const GameEasy = () => {
     <div className="main__game-container">
       <div className="main__game-score">
         Twój wynik to: {score}
-        {/* <Timer /> */}
+        <Timer />
       </div>
       <div className="main__game">{content}</div>
     </div>

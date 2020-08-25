@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 import Card from "./card";
 import WinnerPanel from "./winnerPanel";
+import Timer from "./timer";
 
 import "./scss/main.scss";
 
@@ -88,15 +89,16 @@ const GameHard = () => {
     }
     return array;
   }
-  if (score[0] === 12) {
-    return <WinnerPanel score={score} />;
+  if (cardCont.length === 0) {
+    return <WinnerPanel />;
   }
   const content = cardCont.map((el, i) => (
     <Card id={i} key={i} content={el} show={clickOn} idArr={idArr} />
   ));
   return (
     <div className="main__game-container">
-      <div className="main__game-score">Twój wynik to: {score}</div>
+      <div className="main__game-score">Czas:</div>
+      <Timer />
       <div className="main__game">{content}</div>
     </div>
   );

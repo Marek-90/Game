@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import "./scss/main.scss";
 import Card from "./card";
 import WinnerPanel from "./winnerPanel";
+import Timer from "./timer";
 
 const Game = () => {
   const [current, setCurrent] = useState([]);
@@ -60,15 +61,16 @@ const Game = () => {
     }
     return array;
   }
-  if (score[0] === 9) {
-    return <WinnerPanel score={score} />;
+  if (cardCont.length === 0) {
+    return <WinnerPanel />;
   }
   const content = cardCont.map((el, i) => (
     <Card id={i} key={i} content={el} show={clickOn} idArr={idArr} />
   ));
   return (
     <div className="main__game-container">
-      <div className="main__game-score">Twój wynik to: {score}</div>
+      <div className="main__game-score">Czes:</div>
+      <Timer />
       <div className="main__game">{content}</div>
     </div>
   );

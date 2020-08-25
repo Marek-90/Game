@@ -63,8 +63,8 @@ const GameEasy = () => {
     }
     return array;
   }
-  if (score[0] === 6) {
-    return <WinnerPanel score={score} />;
+  if (cardCont.length === 0) {
+    return <WinnerPanel />;
   }
   const content = cardCont.map((el, i) => (
     <Card id={i} key={i} content={el} show={clickOn} idArr={idArr} />
@@ -72,7 +72,7 @@ const GameEasy = () => {
   return (
     <div className="main__game-container">
       <div className="main__game-score">
-        Twój wynik to: {score}
+        Czas:
         <Timer />
       </div>
       <div className="main__game">{content}</div>

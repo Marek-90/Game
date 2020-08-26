@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 
 import Card from "./card";
 import WinnerPanel from "./winnerPanel";
-import Timer from "./timer";
 
 import "./scss/main.scss";
 
@@ -14,7 +11,23 @@ const GameEasy = () => {
   const [cardCont, setCardCont] = useState(
     shuffle([1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6])
   );
-  const score = 1000;
+  const [sec, setSec] = useState(0);
+  const [min, setMin] = useState(0);
+
+  useEffect(() => {
+    if (sec === 60) {
+      setMin((prevState) => prevState + 1);
+      setSec(0);
+    }
+  }, [sec]);
+
+  useEffect(() => {
+    const time = setInterval(() => {
+      setSec((prevState) => prevState + 1);
+    }, 1000);
+
+    return () => clearInterval(time);
+  }, []);
 
   const clickOn = (secret, id, e) => {
     if (current.length < 2) {
@@ -64,7 +77,7 @@ const GameEasy = () => {
   }
 
   if (cardCont.length === 0) {
-    return <WinnerPanel score={score} />;
+    return <WinnerPanel min={min} sec={sec} />;
   }
 
   const content = cardCont.map((el, i) => (
@@ -74,7 +87,9 @@ const GameEasy = () => {
     <div className="main__game-container">
       <div className="main__game-score">
         Czas:
-        <Timer />
+        <div>
+          {min} min {sec} sec
+        </div>
       </div>
       <div className="main__game">{content}</div>
     </div>

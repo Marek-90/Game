@@ -39,6 +39,23 @@ const GameHard = () => {
       12,
     ])
   );
+  const [sec, setSec] = useState(0);
+  const [min, setMin] = useState(0);
+
+  useEffect(() => {
+    if (sec === 60) {
+      setMin((prevState) => prevState + 1);
+      setSec(0);
+    }
+  }, [sec]);
+
+  useEffect(() => {
+    const time = setInterval(() => {
+      setSec((prevState) => prevState + 1);
+    }, 1000);
+
+    return () => clearInterval(time);
+  }, []);
 
   const clickOn = (secret, id, e) => {
     if (current.length < 2) {
@@ -94,7 +111,9 @@ const GameHard = () => {
   return (
     <div className="main__game-container">
       <div className="main__game-score">Czas:</div>
-      <Timer />
+      <div>
+        {min} min {sec} sec
+      </div>
       <div className="main__game">{content}</div>
     </div>
   );

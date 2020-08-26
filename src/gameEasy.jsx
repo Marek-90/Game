@@ -10,11 +10,11 @@ import "./scss/main.scss";
 
 const GameEasy = () => {
   const [current, setCurrent] = useState([]);
-  const [score, setScore] = useState([0]);
   const [idArr, setIdArr] = useState([]);
   const [cardCont, setCardCont] = useState(
     shuffle([1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6])
   );
+  const score = 1000;
 
   const clickOn = (secret, id, e) => {
     if (current.length < 2) {
@@ -62,9 +62,11 @@ const GameEasy = () => {
     }
     return array;
   }
+
   if (cardCont.length === 0) {
-    return <WinnerPanel />;
+    return <WinnerPanel score={score} />;
   }
+
   const content = cardCont.map((el, i) => (
     <Card id={i} key={i} content={el} show={clickOn} idArr={idArr} />
   ));

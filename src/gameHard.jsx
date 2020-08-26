@@ -10,7 +10,6 @@ import "./scss/main.scss";
 
 const GameHard = () => {
   const [current, setCurrent] = useState([]);
-  const [score, setScore] = useState([0]);
   const [idArr, setIdArr] = useState([]);
   const [cardCont, setCardCont] = useState(
     shuffle([
@@ -56,15 +55,12 @@ const GameHard = () => {
     const t = setTimeout(() => {
       if (current.length === 2) {
         if (idArr[0] !== idArr[1]) {
-          if (current[0] === current[1]) {
-            setScore((prevState) => [prevState[0] + 1]);
-            if (idArr[0] > idArr[1]) {
-              cardCont.splice(idArr[0], 1);
-              cardCont.splice(idArr[1], 1);
-            } else if (idArr[0] < idArr[1]) {
-              cardCont.splice(idArr[0], 1);
-              cardCont.splice(numArr1, 1);
-            }
+          if (idArr[0] > idArr[1]) {
+            cardCont.splice(idArr[0], 1);
+            cardCont.splice(idArr[1], 1);
+          } else if (idArr[0] < idArr[1]) {
+            cardCont.splice(idArr[0], 1);
+            cardCont.splice(numArr1, 1);
           }
         } else {
         }

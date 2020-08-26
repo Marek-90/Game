@@ -8,6 +8,7 @@ import Game from "./game";
 import GameHard from "./gameHard";
 import Header from "./header";
 import Statistic from "./statistic";
+import WinnerPannel from "./winnerPanel";
 
 const Rotate = () => {
   return (

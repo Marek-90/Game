@@ -13,7 +13,6 @@ const GameEasy = () => {
   );
   const [sec, setSec] = useState(0);
   const [min, setMin] = useState(0);
-
   useEffect(() => {
     if (sec === 60) {
       setMin((prevState) => prevState + 1);

@@ -27,6 +27,10 @@
     cursor: pointer;
 }
 
+.main__btn-decoration:focus {
+    outline: none;
+}
+
 .main__game-score {
     width: 150px
 }

@@ -20,14 +20,14 @@ const Statistic = () => {
     <div className="main__game-container">
       <div>
         <table className="statistic__container">
-          <tr>
+          <tr className="statistic__title">
             <th>Id</th>
             <th>Name</th>
             <th>Score</th>
           </tr>
           {data.reverse().map((el, i) => {
             return (
-              <tr key={i}>
+              <tr key={i} className="statistic__list">
                 <td>{i + 1}</td>
                 <td> {el.Name}</td>
                 <td>{el.Score}</td>

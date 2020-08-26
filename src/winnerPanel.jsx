@@ -1,17 +1,15 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import Form from "./form";
+import Form from "./Form";
 
 const WinnerPanel = ({ min, sec }) => {
   let score;
 
   if (sec < 30 && min === 0) {
-    score = 1000 + (1000 - sec * 10);
+    score = 100000 + (1000 - sec * 0.1);
   } else if (sec <= 59 && min === 0) {
-    score = 1000 + (500 - sec * 15);
+    score = 100000 + (500 - sec * 0.5);
   } else if (min > 0) {
-    score = 1000 - (min + sec) * sec;
+    score = 100000 - (min + sec) * sec;
   }
 
   return (

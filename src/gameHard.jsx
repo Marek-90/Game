@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-
-import Card from "./card";
-import WinnerPanel from "./winnerPanel";
-import Timer from "./timer";
-
+import Card from "./Card";
+import WinnerPanel from "./WinnerPanel";
 import "./scss/main.scss";
 
 const GameHard = () => {
@@ -72,14 +67,15 @@ const GameHard = () => {
     const t = setTimeout(() => {
       if (current.length === 2) {
         if (idArr[0] !== idArr[1]) {
-          if (idArr[0] > idArr[1]) {
-            cardCont.splice(idArr[0], 1);
-            cardCont.splice(idArr[1], 1);
-          } else if (idArr[0] < idArr[1]) {
-            cardCont.splice(idArr[0], 1);
-            cardCont.splice(numArr1, 1);
+          if (current[0] === current[1]) {
+            if (idArr[0] > idArr[1]) {
+              cardCont.splice(idArr[0], 1);
+              cardCont.splice(idArr[1], 1);
+            } else if (idArr[0] < idArr[1]) {
+              cardCont.splice(idArr[0], 1);
+              cardCont.splice(numArr1, 1);
+            }
           }
-        } else {
         }
         setCurrent([]);
         setIdArr([]);
@@ -110,9 +106,11 @@ const GameHard = () => {
   ));
   return (
     <div className="main__game-container">
-      <div className="main__game-score">Czas:</div>
-      <div>
-        {min} min {sec} sec
+      <div className="main__game-time">
+        Czas:
+        <div>
+          {min} min {sec} sec
+        </div>
       </div>
       <div className="main__game">{content}</div>
     </div>

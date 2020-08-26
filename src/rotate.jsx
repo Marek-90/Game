@@ -1,14 +1,12 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-
-import Main from "./main";
-import Level from "./level";
-import GameEasy from "./gameEasy";
-import Game from "./game";
-import GameHard from "./gameHard";
-import Header from "./header";
-import Statistic from "./statistic";
-import WinnerPannel from "./winnerPanel";
+import Main from "./Main";
+import Level from "./Level";
+import GameEasy from "./GameEasy";
+import Game from "./Game";
+import GameHard from "./GameHard";
+import Header from "./Header";
+import Statistic from "./Statistic";
 
 const Rotate = () => {
   return (

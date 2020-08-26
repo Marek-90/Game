@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-
-import Card from "./card";
-import WinnerPanel from "./winnerPanel";
-
+import Card from "./Card";
+import WinnerPanel from "./WinnerPanel";
 import "./scss/main.scss";
 
 const GameEasy = () => {
@@ -84,7 +82,7 @@ const GameEasy = () => {
   ));
   return (
     <div className="main__game-container">
-      <div className="main__game-score">
+      <div className="main__game-time">
         Czas:
         <div>
           {min} min {sec} sec

@@ -11,6 +11,8 @@ const GameEasy = () => {
   );
   const [sec, setSec] = useState(0);
   const [min, setMin] = useState(0);
+  const [timeSec, setTimeSec] = useState();
+
   useEffect(() => {
     if (sec === 60) {
       setMin((prevState) => prevState + 1);
@@ -23,8 +25,14 @@ const GameEasy = () => {
       setSec((prevState) => prevState + 1);
     }, 1000);
 
+    setTimeSec(time);
+
     return () => clearInterval(time);
   }, []);
+
+  if (cardCont.length === 0) {
+    clearInterval(timeSec);
+  }
 
   const clickOn = (secret, id, e) => {
     if (current.length < 2) {

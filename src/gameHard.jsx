@@ -36,6 +36,7 @@ const GameHard = () => {
   );
   const [sec, setSec] = useState(0);
   const [min, setMin] = useState(0);
+  const [timeSec, setTimeSec] = useState();
 
   useEffect(() => {
     if (sec === 60) {
@@ -51,6 +52,10 @@ const GameHard = () => {
 
     return () => clearInterval(time);
   }, []);
+
+  if (cardCont.length === 0) {
+    clearInterval(timeSec);
+  }
 
   const clickOn = (secret, id, e) => {
     if (current.length < 2) {

@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { fireBase } from "./config/config_firebase";
+import DelayLink from "react-delay-link";
 
 const Form = ({ score }) => {
   const [input, setInput] = useState("");
   const db = fireBase.firestore();
 
   const handleSubmit = (e) => {
-    e.preventDefault();
     if (input !== "") {
       db.collection("Scores").add({ Name: input, Score: score });
     }
@@ -21,6 +21,7 @@ const Form = ({ score }) => {
         className="form__tyle-input"
         onChange={(e) => setInput(e.target.value)}
       />
+
       <motion.button
         type="submit"
         className="main__btn-decoration"
@@ -29,7 +30,9 @@ const Form = ({ score }) => {
           boxShadow: "0px 0px 10px rgb(255, 255,255)",
         }}
       >
-        Wyślij
+        <DelayLink delay={2000} to="/statistic" clickAction={handleSubmit}>
+          Wyśli
+        </DelayLink>
       </motion.button>
     </form>
   );

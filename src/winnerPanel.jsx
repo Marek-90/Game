@@ -1,5 +1,5 @@
 import React from "react";
-import Form from "./Form";
+import Form from "./form";
 
 const WinnerPanel = ({ min, sec }) => {
   let score;

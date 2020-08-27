@@ -18,7 +18,7 @@ const Form = ({ score }) => {
       <input
         type="text"
         placeholder="Your name"
-        className="form__tyle-input"
+        className="form__style-input"
         onChange={(e) => setInput(e.target.value)}
       />
 

@@ -29,6 +29,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: animacja 3s linear;
 
     &:hover {
         box-shadow: -5px -5px 15px rgba($color: white, $alpha: 1);
@@ -36,10 +37,9 @@
 }
 
 .newClass {
-    // background: none;
+    background: none;
     font-size: 30px;
     color: white;
-
 }
 
 .winnerPanel {
@@ -47,4 +47,14 @@
     color: rgba($color: white, $alpha: 0.8);
     margin-top: 100px;
     text-align: center;
+}
+
+@keyframes animacja {
+    0% {
+        transform: perspective(300px) translateX(150px) rotateY(360deg)
+    }
+
+    100% {
+        transform: perspective(300px) translateX(0) rotateY(0)
+    }
 }

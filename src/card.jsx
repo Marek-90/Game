@@ -2,7 +2,7 @@ import React from "react";
 import "./scss/main.scss";
 
 const Card = ({ content, show, id, idArr }) => {
-  const newC = idArr.includes(id, 0) ? "mainGameCard newClass" : "mainGameCard";
+  const newC = idArr.includes(id, 0) ? "newClass mainGameCard" : "mainGameCard";
 
   return (
     <div id={id} className={newC} onClick={(e) => show(content, id, e)}>

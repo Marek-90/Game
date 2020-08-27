@@ -1,9 +1,9 @@
 .main__game-container {
     min-width: 1200px;
-    min-height: 598px;
+    min-height: 100vh;
     background-image: url("https://c.pxhere.com/photos/3a/33/controller_gamepad_gamer_technology_xbox-1392316.jpg!d");
-    background-attachment: fixed;
     background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     color: white;
@@ -16,14 +16,15 @@
     color: black;
 }
 
-
 .mainGameCard {
     width: 15%;
     height: 15%;
-    background: black;
+    background-image: url("https://cdn.pixabay.com/photo/2017/11/05/16/56/skull-2921085_1280.jpg");
+    background-size: cover;
+    background-position: center;
     border: 3px solid rgba($color: white, $alpha: 0.2);
     margin: 5px;
-    font-size: 30px;
+    font-size: 0px;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -35,9 +36,10 @@
 }
 
 .newClass {
-    background: none;
+    // background: none;
     font-size: 30px;
-    color: white
+    color: white;
+
 }
 
 .winnerPanel {

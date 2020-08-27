@@ -29,7 +29,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: animacja 3s linear;
+    animation: animacja 1s linear;
 
     &:hover {
         box-shadow: -5px -5px 15px rgba($color: white, $alpha: 1);
@@ -51,7 +51,7 @@
 
 @keyframes animacja {
     0% {
-        transform: perspective(300px) translateX(150px) rotateY(360deg)
+        transform: perspective(300px) translateX(150px) rotateY(180deg)
     }
 
     100% {

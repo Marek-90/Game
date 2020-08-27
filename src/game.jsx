@@ -25,6 +25,8 @@ const Game = () => {
       setSec((prevState) => prevState + 1);
     }, 1000);
 
+    setTimeSec(time);
+
     return () => clearInterval(time);
   }, []);
 
@@ -79,7 +81,7 @@ const Game = () => {
     return array;
   }
   if (cardCont.length === 0) {
-    return <WinnerPanel />;
+    return <WinnerPanel min={min} sec={sec} />;
   }
   const content = cardCont.map((el, i) => (
     <Card id={i} key={i} content={el} show={clickOn} idArr={idArr} />

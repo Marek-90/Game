@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Card from "./card";
-import WinnerPanel from "./WinnerPanel";
+import WinnerPanel from "./winnerPanel";
 import "./scss/main.scss";
 
 const Game = () => {

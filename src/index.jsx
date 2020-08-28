@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-import Rotate from "./Rotate";
+import Rotate from "./rotate";
 import "./scss/main.scss";
 
 const App = () => {

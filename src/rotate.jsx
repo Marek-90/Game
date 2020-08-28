@@ -4,7 +4,7 @@ import Main from "./Main";
 import Level from "./Level";
 import GameEasy from "./GameEasy";
 import Game from "./Game";
-import GameHard from "./GameHard";
+import GameHard from "./gameHard";
 import Header from "./Header";
 import Statistic from "./Statistic";
 
